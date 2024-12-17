@@ -10,7 +10,7 @@ import { classNames } from "../constants/common";
 
 const navigation = [
   { name: "Trang chủ", href: "/", current: true },
-  { name: "Blog", href: "/blog", current: false },
+  { name: "Bài viết", href: "/blog", current: false },
   { name: "Dụng cụ hỗ trợ", href: "/equipment", blank: false, current: false },
   { name: "Liên hệ", href: "/contact", current: false },
 ];
@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white-500">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex h-20 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <button
               type="button"
@@ -65,11 +65,11 @@ const Navbar = () => {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex shrink-0 items-center">
-              <Image className="h-8 w-24" alt="metagun button" src={logo} />
+              <Image className="h-12 w-24" alt="metagun button" src={logo} />
               {/* <img className="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> */}
             </div>
             <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 py-1 justify-center items-center">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -78,9 +78,9 @@ const Navbar = () => {
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
-                        ? "bg-gray-400 text-white"
-                        : "bg-gray-500 text-gray-200 hover:bg-gray-700 hover:text-white",
-                      "rounded-md px-3 py-2 text-sm font-medium"
+                        ? "bg-blue-400 text-white"
+                        : "bg-blue-500 text-blue-200 hover:bg-blue-700 hover:text-white",
+                      "rounded-sm px-6 py-2 text-md font-medium"
                     )}>
                     {item.name}
                   </Link>
@@ -186,7 +186,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="sm:hidden" id="mobile-menu">
+      {/* <div className="sm:hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
           <a
             href="#"
@@ -210,7 +210,7 @@ const Navbar = () => {
             Calendar
           </a>
         </div>
-      </div>
+      </div> */}
     </nav>
   );
 };
