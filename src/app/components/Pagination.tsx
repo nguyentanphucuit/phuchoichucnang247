@@ -2,13 +2,18 @@
 import React from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { sourcesPerPage } from "../constants";
-import { totalNumberSearchQuery } from "../constants/common";
 
-const Pagination = ({ totalPages }: { totalPages: number }) => {
+const Pagination = ({
+  totalPages,
+  totalItems,
+}: {
+  totalPages: number;
+  totalItems: number;
+}) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get("page")) || 1;
-  const query = searchParams.get("query") || "";
+  // const query = searchParams.get("query") || "";
 
   const createPageURL = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);
@@ -35,15 +40,15 @@ const Pagination = ({ totalPages }: { totalPages: number }) => {
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
         <div>
           <p className="text-sm  text-gray-700">
-            Hiển thị
+            Hiển thị từ
             <span className="font-medium px-1">{start}</span>
-            từ
-            <span className="font-medium px-1">{end}</span>
             đến
             <span className="font-medium px-1">
-              {totalNumberSearchQuery(query)}
+              {end > totalItems ? totalItems : end}
             </span>
-            tổng sản phẩm
+            của tổng
+            <span className="font-medium px-1">{totalItems}</span>
+            kết quả
           </p>
         </div>
         <div>

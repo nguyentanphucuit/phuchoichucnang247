@@ -1,3 +1,4 @@
+import blogListJSX from "./blogListJSX";
 import { ListItems, sourcesPerPage } from "./index";
 
 const formatPriceVND = (price: number) => {
@@ -8,14 +9,15 @@ const formatPriceVND = (price: number) => {
   );
 };
 
-const totalNumberSearchQuery = (query: string) => {
+// START SOURCE
+const totalNumberSourceSearchQuery = (query: string) => {
   return ListItems.filter((source) =>
     source.title.toLowerCase().includes(query.toLowerCase())
   ).length;
 };
 
 const fetchSourcesPage = (query: string) => {
-  return Math.round(totalNumberSearchQuery(query) / sourcesPerPage) + 1;
+  return Math.round(totalNumberSourceSearchQuery(query) / sourcesPerPage);
 };
 
 const fetchFilteredSource = (query: string, currentPage: number) => {
@@ -26,10 +28,31 @@ const fetchFilteredSource = (query: string, currentPage: number) => {
   const end = currentPage * sourcesPerPage;
   return [...listSourceFilters].slice(start, end);
 };
-
 const spaceToSlash = (str: string) => {
   return str.replace(/\s/g, "-");
 };
+// END SOURCE
+
+// START BLOG
+const totalNumberBlogSearchQuery = (query: string) => {
+  return blogListJSX.filter((blog) =>
+    blog.title.toLowerCase().includes(query.toLowerCase())
+  ).length;
+};
+
+const fetchBlogsPage = (query: string) => {
+  return Math.round(totalNumberBlogSearchQuery(query) / sourcesPerPage);
+};
+
+const fetchFilteredBlog = (query: string, currentPage: number) => {
+  const listBlogFilters = blogListJSX.filter((blog) =>
+    blog.title.toLowerCase().includes(query.toLowerCase())
+  );
+  const start = (currentPage - 1) * sourcesPerPage;
+  const end = currentPage * sourcesPerPage;
+  return [...listBlogFilters].slice(start, end);
+};
+// END BLOG
 
 export function classNames(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(" ");
@@ -70,7 +93,10 @@ export {
   formatPriceVND,
   fetchSourcesPage,
   fetchFilteredSource,
-  totalNumberSearchQuery,
+  totalNumberSourceSearchQuery,
   spaceToSlash,
   removeVietnameseTones,
+  fetchFilteredBlog,
+  totalNumberBlogSearchQuery,
+  fetchBlogsPage,
 };

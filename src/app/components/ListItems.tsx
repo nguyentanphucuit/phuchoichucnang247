@@ -2,7 +2,11 @@
 import React, { Suspense } from "react";
 import SourceDetails from "@/app/components/SourceDetails";
 import Search from "../ui/search";
-import { fetchFilteredSource, fetchSourcesPage } from "@/app/constants/common";
+import {
+  fetchFilteredSource,
+  fetchSourcesPage,
+  totalNumberSourceSearchQuery,
+} from "@/app/constants/common";
 import Pagination from "./Pagination";
 import { useSearchParams } from "next/navigation";
 
@@ -13,6 +17,7 @@ const ListItem = () => {
   const sources = fetchFilteredSource(query, +currentPage);
 
   const totalPages = fetchSourcesPage(query);
+  const totalItems = totalNumberSourceSearchQuery(query);
 
   return (
     <>
@@ -25,7 +30,7 @@ const ListItem = () => {
             <SourceDetails key={source.id} {...source} />
           ))}
         </div>
-        <Pagination totalPages={totalPages} />
+        <Pagination totalPages={totalPages} totalItems={totalItems} />
       </div>
       <div className="pt-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -33,7 +38,7 @@ const ListItem = () => {
             <SourceDetails key={source.id} {...source} />
           ))}
         </div>
-        <Pagination totalPages={totalPages} />
+        <Pagination totalPages={totalPages} totalItems={totalItems} />
       </div>
     </>
   );
