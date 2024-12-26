@@ -21,9 +21,6 @@ const BlogRelated = () => {
           author: doc.data().author && emptyAuthor,
         });
       });
-      console.log(listQuerySnapshot);
-
-      // console.log(querySnapshot);
       setListBLogRelated([...listQuerySnapshot].slice(0, 3));
 
       if (querySnapshot) {
