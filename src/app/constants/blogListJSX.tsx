@@ -11,8 +11,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -141,8 +140,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",
@@ -155,8 +153,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 1",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-1",
     date: "Tuesday, December 17, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -285,8 +282,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Minh Vương Nguyễn",
       role: "Co-Founder / CTO",
@@ -299,8 +295,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 2",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-2",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -429,8 +424,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",
@@ -443,8 +437,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 3",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-3",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -573,8 +566,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",
@@ -587,8 +579,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 4",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-4",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -717,8 +708,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",
@@ -731,8 +721,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 5",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-5",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -861,8 +850,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",
@@ -875,8 +863,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 6",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-6",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -1005,8 +992,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",
@@ -1019,8 +1005,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 7",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-7",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -1149,8 +1134,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",
@@ -1163,8 +1147,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 8",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-8",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -1293,8 +1276,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",
@@ -1307,8 +1289,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 9",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-9",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -1437,8 +1418,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",
@@ -1451,8 +1431,7 @@ const blogList: BlogTypes[] = [
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 11",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-11",
     date: "Monday, December 16, 2024",
-    content: (
-      <div className="">
+    content: `<div className="">
         <div>
           Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh
           hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn
@@ -1581,8 +1560,7 @@ const blogList: BlogTypes[] = [
             </div>
           </div>
         </div>
-      </div>
-    ),
+      </div>`,
     author: {
       name: "Michael Foster",
       role: "Co-Founder / CTO",

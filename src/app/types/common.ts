@@ -1,3 +1,4 @@
+import { Editor } from "@tiptap/react";
 import { StaticImageData } from "next/image";
 
 export interface AuthorTypes {
@@ -8,10 +9,15 @@ export interface AuthorTypes {
 }
 
 export interface BlogTypes {
-  id: number;
+  id: string | number;
   date: string;
   title: string;
   href: string;
-  content: React.ReactNode;
+  content: string;
   author: AuthorTypes;
+}
+
+export interface ToolbarProps {
+  editor: Editor | null;
+  content: string;
 }

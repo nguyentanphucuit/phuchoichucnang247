@@ -2,7 +2,7 @@ import blogList from "../../constants/blogListJSX";
 import BlogCard from "./BlogCard";
 
 const BlogRelated = () => {
-  const listRandomBlogs = blogList.sort(() => Math.random() - 0.5);
+  const listRandomBlogs = blogList;
   const listBLogRelated = listRandomBlogs.slice(0, 3);
   return (
     <div className="bg-white py-6 sm:py-12">
