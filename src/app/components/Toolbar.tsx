@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { ToolbarProps } from "../types/common";
 
-const Toolbar = ({ editor, content }: ToolbarProps) => {
+const Toolbar = ({ editor }: ToolbarProps) => {
   const addImage = useCallback(() => {
     const url = window.prompt("URL") || "";
     editor?.chain().focus().setImage({ src: url }).run();
@@ -119,20 +119,13 @@ const Toolbar = ({ editor, content }: ToolbarProps) => {
                 item.name,
                 item.name === "heading" && { level: 2 }
               )
-                ? "bg-sky-700 text white p-2 rounded-lg"
+                ? "bg-sky-700 text-white p-2 rounded-lg"
                 : "text-sky-400"
             }>
             {item.icon}
           </button>
         ))}
       </div>
-      {content && (
-        <button
-          type="submit"
-          className="px-4 py-2 rounded-md text-white bg-sky-700">
-          Add
-        </button>
-      )}
     </div>
   );
 };
