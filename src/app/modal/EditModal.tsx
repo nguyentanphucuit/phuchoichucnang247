@@ -7,32 +7,37 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import Tiptap from "@/app/components/Tiptap";
-import React, { useState } from "react";
-import { addDoc, collection } from "@firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { doc, setDoc } from "@firebase/firestore";
 import db from "@/app/utils/firestore";
-import { emptyBlog } from "@/app/constants";
 import {
   classNames,
   removeVietnameseTones,
   spaceToSlash,
 } from "@/app/constants/common";
+import { BlogTypes } from "../types/common";
 
-export default function CreateModal() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function EditModal({
+  showEditModal,
+  blogCurrent,
+  setShowEditModal,
+}: {
+  showEditModal: boolean;
+  blogCurrent: BlogTypes;
+  setShowEditModal: (showEditModal: boolean) => void;
+}) {
+  const [blog, setBlog] = useState<BlogTypes>({ ...blogCurrent });
 
-  const open = () => {
-    setIsOpen(true);
-  };
+  useEffect(() => {
+    setBlog({ ...blogCurrent });
+  }, [blogCurrent]);
 
-  const close = () => {
-    setIsOpen(false);
-  };
-
-  const [blog, setBlog] = React.useState({ ...emptyBlog });
   const date = new Date().toDateString();
-
   const handleContentChange = (newContent: string) => {
     setBlog({ ...blog, content: newContent });
+  };
+  const close = () => {
+    setShowEditModal(!showEditModal);
   };
 
   const handleRelatedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,14 +54,15 @@ export default function CreateModal() {
       return;
     console.log(blog);
     try {
-      const docRef = await addDoc(collection(db, "blogs"), {
+      const blogRef = doc(db, "blogs", blog.id);
+      await setDoc(blogRef, {
         ...blog,
         content: JSON.stringify(blog.content).replaceAll("\\", ""),
         href: "/blog/" + spaceToSlash(removeVietnameseTones(blog.title)),
         date: date,
       });
-      console.log("Document written with ID: ", docRef.id);
-      setBlog({ ...emptyBlog });
+      console.log("Document written with ID: ", blog.id);
+      setBlog({ ...blog });
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -65,14 +71,8 @@ export default function CreateModal() {
 
   return (
     <div className="py-4">
-      <Button
-        onClick={open}
-        className="rounded-md bg-blue-600 py-2 px-4 text-sm font-medium text-white focus:outline-none data-[hover]:bg-blue-700/70 data-[focus]:outline-1 data-[focus]:outline-black">
-        Create Blog
-      </Button>
-
       <Dialog
-        open={isOpen}
+        open={showEditModal}
         as="div"
         className="relative z-10 focus:outline-none"
         onClose={close}
@@ -93,6 +93,7 @@ export default function CreateModal() {
               </DialogTitle>
               <div className="w-full h-full">
                 <form onSubmit={handleSubmit}>
+                  <div className="px-4">ID : {blog.id}</div>
                   <div className="px-4">
                     <label>
                       Title:
@@ -119,7 +120,7 @@ export default function CreateModal() {
                   </div>
                   <div className="p-1">
                     <label className="inline-flex items-center cursor-pointer">
-                      <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                      <span className="ms-3 mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                         Related :
                       </span>
                       <input

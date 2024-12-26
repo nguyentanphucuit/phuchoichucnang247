@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   Dialog,
   DialogBackdrop,
@@ -8,12 +7,35 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import { deleteDoc, doc } from "@firebase/firestore";
+import db from "../utils/firestore";
 
-export default function Example() {
-  const [open, setOpen] = useState(true);
+export default function DeleteModal({
+  showDeleteModal,
+  blogIDCurrent,
+  setShowDeleteModal,
+}: {
+  showDeleteModal: boolean;
+  blogIDCurrent: string;
+  setShowDeleteModal: (setShowDeleteModal: boolean) => void;
+}) {
+  const close = () => {
+    setShowDeleteModal(!showDeleteModal);
+  };
+
+  const onDeleteBlog = async () => {
+    console.log(blogIDCurrent);
+    try {
+      const blogRef = doc(db, "blogs", blogIDCurrent);
+      await deleteDoc(blogRef);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    close();
+  };
 
   return (
-    <Dialog open={open} onClose={setOpen} className="relative z-10">
+    <Dialog open={showDeleteModal} onClose={close} className="relative z-10">
       <DialogBackdrop
         transition
         className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
@@ -36,13 +58,13 @@ export default function Example() {
                   <DialogTitle
                     as="h3"
                     className="text-base font-semibold text-gray-900">
-                    Deactivate account
+                    Delete Blog
                   </DialogTitle>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Are you sure you want to deactivate your account? All of
-                      your data will be permanently removed. This action cannot
-                      be undone.
+                      Are you sure you want to delete your blog? All of your
+                      data will be permanently removed. This action cannot be
+                      undone.
                     </p>
                   </div>
                 </div>
@@ -51,14 +73,14 @@ export default function Example() {
             <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <button
                 type="button"
-                onClick={() => setOpen(false)}
+                onClick={() => onDeleteBlog()}
                 className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">
-                Deactivate
+                Delete
               </button>
               <button
                 type="button"
                 data-autofocus
-                onClick={() => setOpen(false)}
+                onClick={close}
                 className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">
                 Cancel
               </button>

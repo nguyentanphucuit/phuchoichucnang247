@@ -1,6 +1,8 @@
 "use client";
-import { emptyAuthor } from "@/app/constants";
+import { emptyAuthor, emptyBlog } from "@/app/constants";
 import CreateModal from "@/app/modal/CreateModal";
+import DeleteModal from "@/app/modal/DeleteModal";
+import EditModal from "@/app/modal/EditModal";
 import { BlogTypes } from "@/app/types/common";
 import db from "@/app/utils/firestore";
 import { collection, getDocs } from "@firebase/firestore";
@@ -9,14 +11,19 @@ import React, { useEffect, useState } from "react";
 
 const BlogAdminPage = () => {
   const [blogList, setBlogList] = useState<BlogTypes[]>([]);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [blogCurrent, setBlogCurrent] = useState({ ...emptyBlog });
 
-  const onEditBlog = (id: string) => {
-    console.log(id);
+  const onEditBlog = (blog: BlogTypes) => {
+    setShowEditModal(!showEditModal);
+    setBlogCurrent(blog);
     console.log("Edit Blog");
   };
 
-  const onDeleteBlog = (id: string) => {
-    console.log(id);
+  const onDeleteBlog = (blog: BlogTypes) => {
+    setShowDeleteModal(!showDeleteModal);
+    setBlogCurrent(blog);
     console.log("Delete Blog");
   };
 
@@ -42,11 +49,20 @@ const BlogAdminPage = () => {
 
     fetchItems();
   }, []);
-  console.log(blogList);
 
   return (
     <div>
       <CreateModal />
+      <EditModal
+        showEditModal={showEditModal}
+        blogCurrent={blogCurrent}
+        setShowEditModal={setShowEditModal}
+      />
+      <DeleteModal
+        showDeleteModal={showDeleteModal}
+        blogIDCurrent={blogCurrent.id}
+        setShowDeleteModal={setShowDeleteModal}
+      />
       <table className="w-full p-10 table-fixed border border-gray-400">
         <thead className="">
           <tr>
@@ -77,14 +93,14 @@ const BlogAdminPage = () => {
               </td>
               <td className="p-4">
                 <div className="flex justify-center items-center">
-                  <button onClick={() => onEditBlog(blog.id)}>
+                  <button onClick={() => onEditBlog(blog)}>
                     <Pencil className="p-1 rounded-sm bg-orange-300 text-orange-600 w-6 h-6" />
                   </button>
                 </div>
               </td>
               <td className="p-4">
                 <div className="flex justify-center items-center">
-                  <button onClick={() => onDeleteBlog(blog.id)}>
+                  <button onClick={() => onDeleteBlog(blog)}>
                     <Trash2 className="p-1 rounded-sm bg-red-300 text-red-600 w-6 h-6" />
                   </button>
                 </div>

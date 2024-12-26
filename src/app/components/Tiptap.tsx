@@ -16,7 +16,6 @@ const Tiptap = ({
   const handleChange = (newContent: string) => {
     onChange(newContent);
   };
-
   const editor = useEditor({
     extensions: [StarterKit, Underline, ImageResize],
     editorProps: {
@@ -25,9 +24,12 @@ const Tiptap = ({
           "flex flex-col px-4 py-3 justify-start border-b border-r border-l  border-gray-700",
       },
     },
+    immediatelyRender: true,
+    shouldRerenderOnTransaction: false,
     onUpdate: ({ editor }) => {
       handleChange(editor.getHTML());
     },
+    content: content.slice(1, -1),
   });
 
   return (
