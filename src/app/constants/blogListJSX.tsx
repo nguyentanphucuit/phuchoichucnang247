@@ -7,8 +7,11 @@ import { BlogTypes } from "../types/common";
 
 const blogList: BlogTypes[] = [
   {
-    id: 0,
+    id: "0",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY",
     date: "Monday, December 16, 2024",
     content: `<div className="">
@@ -149,8 +152,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 1,
+    id: "1",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 1",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-1",
     date: "Tuesday, December 17, 2024",
     content: `<div className="">
@@ -291,8 +297,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 2,
+    id: "2",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 2",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-2",
     date: "Monday, December 16, 2024",
     content: `<div className="">
@@ -433,8 +442,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 3,
+    id: "3",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 3",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-3",
     date: "Monday, December 16, 2024",
     content: `<div className="">
@@ -575,8 +587,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 4,
+    id: "4",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 4",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-4",
     date: "Monday, December 16, 2024",
     content: `<div className="">
@@ -717,8 +732,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 5,
+    id: "5",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 5",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-5",
     date: "Monday, December 16, 2024",
     content: `<div className="">
@@ -859,8 +877,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 6,
+    id: "6",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 6",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-6",
     date: "Monday, December 16, 2024",
     content: `<div className="">
@@ -1001,8 +1022,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 7,
+    id: "7",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 7",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-7",
     date: "Monday, December 16, 2024",
     content: `<div className="">
@@ -1143,8 +1167,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 8,
+    id: "8",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 8",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-8",
     date: "Monday, December 16, 2024",
     content: `<div className="">
@@ -1285,8 +1312,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 9,
+    id: "9",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 9",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-9",
     date: "Monday, December 16, 2024",
     content: `<div className="">
@@ -1427,8 +1457,11 @@ const blogList: BlogTypes[] = [
     },
   },
   {
-    id: 3,
+    id: "3",
     title: "NGUYÊN TẮC TỔ CHỨC KHÔNG GIAN SỐNG CHO BỆNH NHÂN ĐỘT QUỴ - 11",
+    related: false,
+    subtitle:
+      "Bệnh nhân đột quỵ thường gặp phải những khó khăn lớn trong các sinh hoạt hàng ngày, từ việc di chuyển đến tự chăm sóc bản thân. Những hạn chế này không chỉ ảnh hưởng đến chất lượng cuộc sống mà còn làm tăng nguy cơ tai nạn, đặc biệt là ngã. Vì vậy, việc tổ chức không gian sống sao cho hợp lý và khoa học là rất quan trọng để hỗ trợ bệnh nhân duy trì sự độc lập và giảm thiểu nguy cơ tai nạn.",
     href: "/blog/NGUYEN-TAC-TO-CHUC-KHONG-GIAN-SONG-CHO-BENH-NHAN-DOT-QUY-11",
     date: "Monday, December 16, 2024",
     content: `<div className="">

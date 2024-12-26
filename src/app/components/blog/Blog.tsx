@@ -1,5 +1,5 @@
 import { BlogTypes } from "@/app/types/common";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import db from "@/app/utils/firestore";
 import { useEffect, useState } from "react";
 import parse from "html-react-parser";
@@ -7,12 +7,17 @@ const Blog = ({ title }: { title: string }) => {
   const [blog, setBlog] = useState<BlogTypes>();
   useEffect(() => {
     const fetchItems = async () => {
-      const docRef = doc(db, "blogs", "WyqJpikC6N7dNHtZhDLD");
-      const docSnap = await getDoc(docRef);
-      const data = docSnap.data();
-      setBlog(data as BlogTypes);
-      if (docSnap.exists()) {
-        console.log("Document data:", data);
+      // const docRef = doc(db, "blogs", "WyqJpikC6N7dNHtZhDLD");
+      const q = query(
+        collection(db, "blogs"),
+        where("href", "==", "/blog/" + title)
+      );
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setBlog(doc.data() as BlogTypes);
+      });
+      if (querySnapshot) {
+        console.log("Document data:" + querySnapshot);
       } else {
         console.log("No such document!");
       }
@@ -32,7 +37,7 @@ const BlogTemplate = ({ ...props }: BlogTypes) => {
       <div className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl">
         {props.title || ""}
       </div>
-      {parse(props.content || "")}
+      <div className="">{parse(props.content.slice(1, -1))}</div>
     </div>
   );
 };

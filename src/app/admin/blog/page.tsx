@@ -1,102 +1,96 @@
 "use client";
-import { addDoc, collection } from "@firebase/firestore";
-import React from "react";
+import { emptyAuthor } from "@/app/constants";
+import { BlogTypes } from "@/app/types/common";
 import db from "@/app/utils/firestore";
-import imageAuthor from "/public/assets/img/author.jpg";
-// import blogList from "@/app/constants/blogListJSX";
-// import { removeVietnameseTones, spaceToSlash } from "@/app/constants/common";
-// import { renderToString } from "react-dom/server";
+import { collection, getDocs } from "@firebase/firestore";
+import { Pencil, Trash2 } from "lucide-react";
+import React, { useEffect, useState } from "react";
 
-const emptyBlog = {
-  id: "",
-  title: "",
-  href: "",
-  date: "",
-  content: "",
-  author: {
-    author: {
-      name: "Minh Vương Nguyễn",
-      role: "Co-Founder / CTO",
-      href: "#",
-      imageUrl: imageAuthor,
-    },
-  },
-};
+const BlogAdminPage = () => {
+  const [blogList, setBlogList] = useState<BlogTypes[]>([]);
 
-const BlogAdmin = () => {
-  const [blog, setBlog] = React.useState({ ...emptyBlog });
-
-  const handleBlogChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBlog({ ...blog, [e.target.name]: e.target.value });
+  const onEditBlog = (id: string) => {
+    console.log(id);
+    console.log("Edit Blog");
   };
 
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      const docRef = await addDoc(collection(db, "blogs"), { ...blog });
-      console.log("Document written with ID: ", docRef.id);
-      setBlog({ ...emptyBlog });
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-
-    // POST DATA BACKUP
-    // let i = 0;
-    // while (i < blogList.length) {
-    //   try {
-    //     const docRef = await addDoc(collection(db, "blogs"), {
-    //       ...blog,
-    //       href:
-    //         "/blog/" + spaceToSlash(removeVietnameseTones(blogList[i].title)),
-    //       content: renderToString(blogList[i].content),
-    //     });
-    //     console.log("Document written with ID: ", docRef.id);
-    //     setBlog({ ...emptyBlog });
-    //   } catch (e) {
-    //     console.error("Error adding document: ", e);
-    //   }
-    //   i++;
-    // }
+  const onDeleteBlog = (id: string) => {
+    console.log(id);
+    console.log("Delete Blog");
   };
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const querySnapshot = await getDocs(collection(db, "blogs"));
+      setBlogList(
+        querySnapshot.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            date: data.date,
+            title: data.title,
+            subtitle: data.subtitle,
+            related: data.related,
+            href: data.href,
+            content: data.content,
+            author: data.author && emptyAuthor,
+          };
+        })
+      );
+    };
+
+    fetchItems();
+  }, []);
+  console.log(blogList);
 
   return (
-    <div>
-      <h1>Upload Blog</h1>
-      <form className="flex flex-col gap-4 border p-10" onSubmit={onSubmit}>
-        <label>
-          Title:
-          <input
-            type="text"
-            name="title"
-            className="border p-2 m-2"
-            value={blog.title}
-            onChange={handleBlogChange}
-          />
-        </label>
-        <label>
-          Date:
-          <input
-            type="text"
-            name="date"
-            className="border p-2 m-2"
-            value={blog.date}
-            onChange={handleBlogChange}
-          />
-        </label>
-        <label>
-          Content:
-          <input
-            type="text"
-            name="content"
-            className="border p-2 m-2"
-            value={blog.content}
-            onChange={handleBlogChange}
-          />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <table className="w-full p-10 table-fixed border border-gray-400">
+      <thead className="">
+        <tr>
+          <th className="w-1/6 border border-gray-400">ID</th>
+          <th className="w-2/6 border border-gray-400">Title</th>
+          <th className="w-2/6 border border-gray-400">Subtitle</th>
+          <th className="w-1/12 border border-gray-400">Edit</th>
+          <th className="w-1/12 border border-gray-400">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {blogList.map((blog) => (
+          <tr className="border border-gray-400" key={blog.id}>
+            <td className="border border-gray-400 px-4">
+              <div className="flex justify-center items-center">
+                <p className="line-clamp-2">{blog.id}</p>
+              </div>
+            </td>
+            <td className="border border-gray-400 px-4">
+              <div className="flex justify-center items-center ">
+                <p className="line-clamp-2">{blog.title}</p>
+              </div>
+            </td>
+            <td className="border border-gray-400 px-4">
+              <div className="flex justify-center items-center ">
+                <p className="line-clamp-2">{blog.subtitle}</p>
+              </div>
+            </td>
+            <td className="border border-gray-400 px-4">
+              <div className="flex justify-center items-center">
+                <button onClick={() => onEditBlog(blog.id)}>
+                  <Pencil className="p-1 rounded-sm bg-orange-300 text-orange-600 w-6 h-6" />
+                </button>
+              </div>
+            </td>
+            <td className="border border-gray-400 px-4">
+              <div className="flex justify-center items-center">
+                <button onClick={() => onDeleteBlog(blog.id)}>
+                  <Trash2 className="p-1 rounded-sm bg-red-300 text-red-600 w-6 h-6" />
+                </button>
+              </div>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
-export default BlogAdmin;
+export default BlogAdminPage;

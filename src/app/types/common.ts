@@ -9,12 +9,14 @@ export interface AuthorTypes {
 }
 
 export interface BlogTypes {
-  id: string | number;
+  id: string;
   date: string;
   title: string;
+  subtitle: string;
   href: string;
   content: string;
   author: AuthorTypes;
+  related: boolean;
 }
 
 export interface ToolbarProps {

@@ -7,7 +7,7 @@ import db from "@/app/utils/firestore";
 import { emptyBlog } from "@/app/constants";
 import { removeVietnameseTones, spaceToSlash } from "@/app/constants/common";
 
-const Convert = () => {
+const CreateBlog = () => {
   const [blog, setBlog] = React.useState({ ...emptyBlog });
   const date = new Date().toDateString();
 
@@ -25,11 +25,10 @@ const Convert = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
       const docRef = await addDoc(collection(db, "blogs"), {
         ...blog,
-        content: JSON.stringify(blog.content.replaceAll("\\", "")),
+        content: JSON.stringify(blog.content).replaceAll("\\", ""),
         href: "/blog/" + spaceToSlash(removeVietnameseTones(blog.title)),
         date: date,
       });
@@ -91,4 +90,4 @@ const Convert = () => {
   );
 };
 
-export default Convert;
+export default CreateBlog;

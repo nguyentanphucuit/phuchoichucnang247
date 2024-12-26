@@ -4,37 +4,37 @@ import Tiptap from "@/app/components/Tiptap";
 import React from "react";
 import { addDoc, collection } from "@firebase/firestore";
 import db from "@/app/utils/firestore";
-import { emptyBlog } from "@/app/constants";
+// import { emptyBlog } from "@/app/constants";
 import { removeVietnameseTones, spaceToSlash } from "@/app/constants/common";
+import { BlogTypes } from "@/app/types/common";
 
-const Convert = () => {
-  const [blog, setBlog] = React.useState({ ...emptyBlog });
+const EditBlog = (blog: BlogTypes) => {
+  const [editedBlog, setEditedBlog] = React.useState({ ...blog });
   const date = new Date().toDateString();
 
   const handleContentChange = (newContent: string) => {
-    setBlog({ ...blog, content: newContent });
+    setEditedBlog({ ...editedBlog, content: newContent });
   };
 
   const handleRelatedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBlog({ ...blog, related: e.target.checked });
+    setEditedBlog({ ...editedBlog, related: e.target.checked });
   };
 
   const handleBlogChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBlog({ ...blog, [e.target.name]: e.target.value });
+    setEditedBlog({ ...editedBlog, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
       const docRef = await addDoc(collection(db, "blogs"), {
-        ...blog,
-        content: JSON.stringify(blog.content.replaceAll("\\", "")),
-        href: "/blog/" + spaceToSlash(removeVietnameseTones(blog.title)),
+        ...editedBlog,
+        content: JSON.stringify(editedBlog.content).replaceAll("\\", ""),
+        href: "/blog/" + spaceToSlash(removeVietnameseTones(editedBlog.title)),
         date: date,
       });
       console.log("Document written with ID: ", docRef.id);
-      setBlog({ ...emptyBlog });
+      setEditedBlog({ ...editedBlog });
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -50,7 +50,7 @@ const Convert = () => {
               type="text"
               name="title"
               className="border p-2 m-2"
-              value={blog.title}
+              value={editedBlog.title}
               onChange={handleBlogChange}
             />
           </label>
@@ -62,7 +62,7 @@ const Convert = () => {
               type="text"
               name="subtitle"
               className="border p-2 m-2"
-              value={blog.subtitle}
+              value={editedBlog.subtitle}
               onChange={handleBlogChange}
             />
           </label>
@@ -75,7 +75,7 @@ const Convert = () => {
             <input
               type="checkbox"
               name="related"
-              checked={blog.related}
+              checked={editedBlog.related}
               onChange={handleRelatedChange}
               className="sr-only peer"
             />
@@ -83,7 +83,7 @@ const Convert = () => {
           </label>
         </div>
         <Tiptap
-          content={blog.content}
+          content={editedBlog.content}
           onChange={(newContent: string) => handleContentChange(newContent)}
         />
       </form>
@@ -91,4 +91,4 @@ const Convert = () => {
   );
 };
 
-export default Convert;
+export default EditBlog;

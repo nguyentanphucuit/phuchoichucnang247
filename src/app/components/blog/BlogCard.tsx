@@ -15,12 +15,12 @@ const BlogCard = ({ ...props }: BlogTypes) => {
       </div>
       <div className="group relative py-2">
         <Link
-          className="mt-3 font-semibold text-gray-900 group-hover:text-gray-600"
+          className="mt-3 h-12 font-semibold line-clamp-2 text-gray-900 group-hover:text-gray-600"
           href={props.href}>
           {props.title}
         </Link>
-        <div className="mt-5 line-clamp-3 text-sm/6 text-gray-600">
-          {props.content}
+        <div className="mt-5 h-20 line-clamp-3 text-sm/6 text-gray-600">
+          {props.subtitle}
         </div>
       </div>
       <div className="relative mt-8 flex items-center gap-x-4">

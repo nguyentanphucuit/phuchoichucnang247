@@ -12,7 +12,8 @@ import BlogCard from "./blog/BlogCard";
 import { collection, getDocs } from "@firebase/firestore";
 import db from "../utils/firestore";
 import { BlogTypes } from "../types/common";
-import blogList from "../constants/blogListJSX";
+import { emptyAuthor } from "../constants";
+// import blogList from "../constants/blogListJSX";
 // import parse from "html-react-parser";
 
 const ListBlog = () => {
@@ -29,9 +30,11 @@ const ListBlog = () => {
             id: doc.id,
             date: data.date,
             title: data.title,
+            subtitle: data.subtitle,
+            related: data.related,
             href: data.href,
             content: data.content,
-            author: data.author,
+            author: data.author && emptyAuthor,
           };
         })
       );
@@ -54,8 +57,8 @@ const ListBlog = () => {
           <Search placeholder="Tìm kiếm ..." />
         </Suspense>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-8">
-          {blogList.map((blog) => (
-            <BlogCard key={blog.title} {...blog} />
+          {items.map((blog) => (
+            <BlogCard key={blog.href} {...blog} />
           ))}
         </div>
         {/* <Pagination totalPages={totalPages} totalItems={totalItems} /> */}

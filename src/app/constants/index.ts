@@ -18,8 +18,26 @@ import image17 from "../../../public/assets/img/image17.jpg";
 import image18 from "../../../public/assets/img/image18.jpg";
 import image19 from "../../../public/assets/img/image19.jpg";
 import image20 from "../../../public/assets/img/image20.jpg";
+import imageAuthor from "/public/assets/img/author.jpg";
 
 const sourcesPerPage = 4;
+
+const emptyAuthor = {
+  name: "Minh Vương",
+  role: "Co-Founder / CTO",
+  href: "#",
+  imageUrl: imageAuthor,
+};
+const emptyBlog = {
+  id: "",
+  title: "",
+  subtitle: "",
+  href: "",
+  date: "",
+  content: "",
+  author: emptyAuthor,
+  related: false,
+};
 
 const ListItems = [
   {
@@ -427,4 +445,4 @@ const listHighHeels = [
   },
 ];
 
-export { ListItems, sourcesPerPage, listHighHeels };
+export { ListItems, sourcesPerPage, listHighHeels, emptyAuthor, emptyBlog };
