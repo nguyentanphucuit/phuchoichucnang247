@@ -1,7 +1,7 @@
-import Image from "next/image";
-import blog1Image1 from "/public/assets/img/blog-1-image-1.jpg";
-import blog2Image2 from "/public/assets/img/blog-2-image-2.jpg";
-import React from "react";
+// import Image from "next/image";
+// import blog1Image1 from "/public/assets/img/blog-1-image-1.jpg";
+// import blog2Image2 from "/public/assets/img/blog-2-image-2.jpg";
+// import React from "react";
 import imageAuthor from "/public/assets/img/author.jpg";
 import { BlogTypes } from "../types/common";
 
