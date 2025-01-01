@@ -82,7 +82,7 @@ export default function CreateModal() {
           className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
         />
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex h-screen items-center justify-center p-4">
+          <div className="flex h-auto items-center justify-center p-4">
             <DialogPanel
               transition
               className="w-full max-w-screen-lg rounded-xl bg-blue-200 p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0">
