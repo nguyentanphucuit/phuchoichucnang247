@@ -11,6 +11,7 @@ export interface AuthorTypes {
 export interface BlogTypes {
   id: string;
   date: string;
+  mainImg: string;
   title: string;
   subtitle: string;
   href: string;

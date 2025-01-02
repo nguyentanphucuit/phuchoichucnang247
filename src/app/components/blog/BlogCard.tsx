@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BlogTypes } from "@/app/types/common";
 
 const BlogCard = ({ ...props }: BlogTypes) => {
+  console.log(props);
   return (
     <article
       key={props.id}
@@ -12,6 +13,13 @@ const BlogCard = ({ ...props }: BlogTypes) => {
         <time dateTime={props.date} className="text-gray-500">
           {props.date}
         </time>
+      </div>
+      <div className="relative h-48 w-full overflow-hidden">
+        <img
+          alt={props.title}
+          src={props.mainImg}
+          className="rounded-lg bg-gray-50"
+        />
       </div>
       <div className="group relative py-2">
         <Link

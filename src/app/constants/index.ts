@@ -32,6 +32,7 @@ const emptyBlog = {
   id: "",
   title: "",
   subtitle: "",
+  mainImg: "",
   href: "",
   date: "",
   content: "",

@@ -27,8 +27,9 @@ const Blog = ({ title }: { title: string }) => {
   }, [title]);
   return blog ? <BlogTemplate {...blog} /> : <div>Loading...</div>; // Data will be available as props in your component
 };
-
 const BlogTemplate = ({ ...props }: BlogTypes) => {
+  console.log(props);
+
   return (
     <div className="flex flex-col gap-4">
       <div className=" text-slate-700 dark:text-slate-400">

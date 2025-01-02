@@ -117,6 +117,18 @@ export default function CreateModal() {
                       />
                     </label>
                   </div>
+                  <div className="px-4">
+                    <label>
+                      Main Image:
+                      <input
+                        type="text"
+                        name="mainImg"
+                        className="border p-2 m-2"
+                        value={blog.mainImg}
+                        onChange={handleBlogChange}
+                      />
+                    </label>
+                  </div>
                   <div className="p-1">
                     <label className="inline-flex items-center cursor-pointer">
                       <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
