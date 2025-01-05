@@ -26,10 +26,10 @@ const Footer = () => {
                 <li className="mb-4">
                   <a
                     target="_blank"
-                    href="https://maps.app.goo.gl/KjnnaNFcaqDcQWDa7"
+                    href="https://maps.app.goo.gl/yfPWcY16QS941FQYA"
                     className="hover:underline">
-                    Địa chỉ : 152 Lý Thường Kiệt, P. Thành Công, Tp. Buôn Ma
-                    Thuột, tỉnh Đắk Lắk
+                    Chung cư Mizuki Park 6, xã Bình Hưng, huyện Bình chánh ,
+                    Thành phố Hồ Chí Minh
                   </a>
                 </li>
                 <li>
@@ -37,7 +37,7 @@ const Footer = () => {
                     target="_blank"
                     href="https://zalo.me/0905075588"
                     className="hover:underline">
-                    Số điện thoại : 0905 075 588
+                    Hotline : 0815996599 - 0345889090
                   </a>
                 </li>
               </ul>
@@ -51,7 +51,7 @@ const Footer = () => {
                 <li className="mb-4">
                   <a
                     target="_blank"
-                    href="https://www.facebook.com/profile.php?id=100054779588811"
+                    href="https://www.facebook.com/profile.php?id=100090385571736"
                     className="hover:underline ">
                     Facebook
                   </a>
@@ -59,7 +59,7 @@ const Footer = () => {
                 <li>
                   <a
                     target="_blank"
-                    href="https://zalo.me/0905075588"
+                    href="https://zalo.me/0815996599"
                     className="hover:underline">
                     Zalo
                   </a>
