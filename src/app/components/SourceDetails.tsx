@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { formatPriceVND } from "@/app/constants/common";
+// import { formatPriceVND } from "@/app/constants/common";
 import Image, { StaticImageData } from "next/image";
 
 interface SourceDetailsProps {
@@ -14,22 +14,16 @@ interface SourceDetailsProps {
   type: string;
 }
 
-const SourceDetails = ({
-  image,
-  title,
-  type,
-  link,
-  price,
-  discount,
-}: SourceDetailsProps) => {
+const SourceDetails = ({ image, title, type, link }: SourceDetailsProps) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <div className="relative w-76 h-60">
+      <div className="relative w-76 h-60 flex items-center justify-center">
         <Link href={link} target="_blank">
           <Image
-            fill
+            width={250}
+            height={200}
             className="rounded-t-lg"
-            alt="metagun button"
+            alt="phuchoichucnang button"
             src={image}
           />
         </Link>
@@ -44,14 +38,14 @@ const SourceDetails = ({
           {title}
         </p>
         <div className="flex flex-row justify-between items-center">
-          <p className="text-lg line-through font-semibold text-gray-500 dark:text-white ">
+          {/* <p className="text-lg line-through font-semibold text-gray-500 dark:text-white ">
             {formatPriceVND(price)}
           </p>
           <p className="text-xl font-semibold text-gray-900 dark:text-white ">
             {formatPriceVND((price * (100 - discount)) / 100)}
-          </p>
+          </p> */}
 
-          <Link
+          {/* <Link
             href={link}
             target="_blank"
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -71,7 +65,7 @@ const SourceDetails = ({
                 d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
               />
             </svg>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

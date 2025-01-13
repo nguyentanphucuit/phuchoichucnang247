@@ -55,3 +55,16 @@ ul {
 ol {
   @apply list-decimal px-4;
 }
+
+.hero-pattern {
+  background: linear-gradient(rgba(2, 2, 2, 0.77), rgba(2, 2, 2, 0.77)),
+    url("../../public/assets/img/hero-pattern.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.contactUs-pattern {
+  background: linear-gradient(rgba(2, 2, 2, 0.77), rgba(2, 2, 2, 0.77)),
+    url("../../public/assets/img/contact-us.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

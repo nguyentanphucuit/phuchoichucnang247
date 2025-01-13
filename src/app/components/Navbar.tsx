@@ -20,7 +20,7 @@ const Navbar = () => {
     item.current = item.href === pathname;
   });
   return (
-    <nav className="bg-white-500">
+    <nav className="absolute w-screen bg-black bg-opacity-20">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -63,9 +63,13 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-center">
             <div className="flex shrink-0 items-center">
-              <Image className="h-12 w-24" alt="metagun button" src={logo} />
+              <Image
+                className="h-12 w-24"
+                alt="phuchoichucnang button"
+                src={logo}
+              />
               {/* <img className="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> */}
             </div>
             <div className="hidden sm:ml-6 sm:block">
@@ -78,9 +82,9 @@ const Navbar = () => {
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
-                        ? "bg-blue-400 text-white"
-                        : "bg-blue-500 text-blue-200 hover:bg-blue-700 hover:text-white",
-                      "rounded-sm px-6 py-2 text-md font-medium"
+                        ? " text-blue-500"
+                        : " text-white  hover:text-blue-500",
+                      "rounded-sm px-6 py-2 text-md font-medium uppercase"
                     )}>
                     {item.name}
                   </Link>

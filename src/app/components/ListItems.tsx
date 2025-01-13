@@ -21,18 +21,11 @@ const ListItem = () => {
 
   return (
     <>
-      <div className="pt-12">
+      <div className="pt-20 w-screen hero-pattern"></div>
+      <div className="pt-12 w-full mx-auto max-w-7xl">
         <Suspense>
           <Search placeholder="Tìm kiếm ..." />
         </Suspense>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {sources.map((source) => (
-            <SourceDetails key={source.id} {...source} />
-          ))}
-        </div>
-        <Pagination totalPages={totalPages} totalItems={totalItems} />
-      </div>
-      <div className="pt-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {sources.map((source) => (
             <SourceDetails key={source.id} {...source} />

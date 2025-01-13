@@ -17,7 +17,7 @@ const totalNumberSourceSearchQuery = (query: string) => {
 };
 
 const fetchSourcesPage = (query: string) => {
-  return Math.round(totalNumberSourceSearchQuery(query) / sourcesPerPage);
+  return Math.ceil(totalNumberSourceSearchQuery(query) / sourcesPerPage);
 };
 
 const fetchFilteredSource = (query: string, currentPage: number) => {
@@ -41,7 +41,7 @@ const totalNumberBlogSearchQuery = (query: string) => {
 };
 
 const fetchBlogsPage = (query: string) => {
-  return Math.round(totalNumberBlogSearchQuery(query) / sourcesPerPage);
+  return Math.ceil(totalNumberBlogSearchQuery(query) / sourcesPerPage);
 };
 
 const fetchFilteredBlog = (query: string, currentPage: number) => {
