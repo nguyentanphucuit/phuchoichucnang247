@@ -52,7 +52,7 @@ const BlogAdminPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pt-32 px-10">
       <CreateModal />
       <EditModal
         showEditModal={showEditModal}
@@ -61,7 +61,8 @@ const BlogAdminPage = () => {
       />
       <DeleteModal
         showDeleteModal={showDeleteModal}
-        blogIDCurrent={blogCurrent.id}
+        idCurrent={blogCurrent.id}
+        collection="blogs"
         setShowDeleteModal={setShowDeleteModal}
       />
       <table className="w-full p-10 table-fixed border border-gray-400">

@@ -50,6 +50,14 @@ const emptyBlog = {
   related: false,
 };
 
+const emptyMessage = {
+  id: "",
+  email: "",
+  subject: "",
+  message: "",
+  date: "",
+};
+
 const ListItems = [
   {
     id: 1,
@@ -344,4 +352,11 @@ const listHighHeels = [
   },
 ];
 
-export { ListItems, sourcesPerPage, listHighHeels, emptyAuthor, emptyBlog };
+export {
+  ListItems,
+  sourcesPerPage,
+  listHighHeels,
+  emptyAuthor,
+  emptyBlog,
+  emptyMessage,
+};

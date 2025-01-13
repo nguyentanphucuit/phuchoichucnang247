@@ -17,10 +17,10 @@ interface SourceDetailsProps {
 const SourceDetails = ({ image, title, type, link }: SourceDetailsProps) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <div className="relative w-76 h-60 flex items-center justify-center">
+      <div className="relative h-60 flex flex-row items-center justify-center content-center">
         <Link href={link} target="_blank">
           <Image
-            width={250}
+            width={200}
             height={200}
             className="rounded-t-lg"
             alt="phuchoichucnang button"

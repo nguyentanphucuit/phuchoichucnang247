@@ -12,22 +12,24 @@ import db from "../utils/firestore";
 
 export default function DeleteModal({
   showDeleteModal,
-  blogIDCurrent,
+  idCurrent,
+  collection,
   setShowDeleteModal,
 }: {
   showDeleteModal: boolean;
-  blogIDCurrent: string;
+  idCurrent: string;
+  collection: string;
   setShowDeleteModal: (setShowDeleteModal: boolean) => void;
 }) {
   const close = () => {
     setShowDeleteModal(!showDeleteModal);
   };
 
-  const onDeleteBlog = async () => {
-    console.log(blogIDCurrent);
+  const onDelete = async () => {
+    console.log(idCurrent);
     try {
-      const blogRef = doc(db, "blogs", blogIDCurrent);
-      await deleteDoc(blogRef);
+      const ref = doc(db, collection, idCurrent);
+      await deleteDoc(ref);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -58,13 +60,12 @@ export default function DeleteModal({
                   <DialogTitle
                     as="h3"
                     className="text-base font-semibold text-gray-900">
-                    Delete Blog
+                    Delete
                   </DialogTitle>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Are you sure you want to delete your blog? All of your
-                      data will be permanently removed. This action cannot be
-                      undone.
+                      Are you sure you want to delete? All of your data will be
+                      permanently removed. This action cannot be undone.
                     </p>
                   </div>
                 </div>
@@ -73,7 +74,7 @@ export default function DeleteModal({
             <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <button
                 type="button"
-                onClick={() => onDeleteBlog()}
+                onClick={() => onDelete()}
                 className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">
                 Delete
               </button>

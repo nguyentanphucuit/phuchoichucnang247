@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import logo from "/public/assets/img/doctor-logo.png";
+import logo from "/public/assets/img/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,8 +19,18 @@ const Navbar = () => {
   navigation.forEach((item) => {
     item.current = item.href === pathname;
   });
+  const [open, setOpen] = React.useState(false);
+  const openMainMenu = () => {
+    console.log(open);
+    setOpen(!open);
+  };
+
   return (
-    <nav className="absolute w-screen bg-black bg-opacity-20">
+    <nav
+      className={classNames(
+        open ? "text-white" : "",
+        "absolute w-screen bg-black bg-opacity-20"
+      )}>
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -28,6 +38,7 @@ const Navbar = () => {
               type="button"
               className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               aria-controls="mobile-menu"
+              onClick={() => openMainMenu()}
               aria-expanded="false">
               <span className="absolute -inset-0.5"></span>
               <span className="sr-only">Open main menu</span>
@@ -63,10 +74,10 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-center">
+          <div className="flex flex-1 items-center justify-center sm:justify-center">
             <div className="flex shrink-0 items-center">
               <Image
-                className="h-12 w-24"
+                className="h-16 w-16"
                 alt="phuchoichucnang button"
                 src={logo}
               />
@@ -190,31 +201,25 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* <div className="sm:hidden" id="mobile-menu">
+      <div className={open ? "sm:hidden + block" : "hidden"} id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
-          <a
-            href="#"
-            className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-            aria-current="page">
-            Dashboard
-          </a>
-          <a
-            href="#"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-700 hover:text-white">
-            Team
-          </a>
-          <a
-            href="#"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-700 hover:text-white">
-            Projects
-          </a>
-          <a
-            href="#"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-700 hover:text-white">
-            Calendar
-          </a>
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              target={item.blank ? "_blank" : "_self"}
+              href={item.href}
+              aria-current={item.current ? "page" : undefined}
+              className={classNames(
+                item.current
+                  ? " text-blue-500"
+                  : " text-white  hover:text-blue-500",
+                "block rounded-md px-3 py-2 text-base font-medium"
+              )}>
+              {item.name}
+            </Link>
+          ))}
         </div>
-      </div> */}
+      </div>
     </nav>
   );
 };

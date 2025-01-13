@@ -24,3 +24,11 @@ export interface ToolbarProps {
   editor: Editor | null;
   content: string;
 }
+
+export interface MessageProps {
+  id: string;
+  email: string;
+  subject: string;
+  message: string;
+  date: string;
+}

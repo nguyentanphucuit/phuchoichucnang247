@@ -7,6 +7,7 @@ import { classNames } from "../constants/common";
 const Admin = () => {
   const navigation = [
     { name: "Blog", href: "/admin/blog", blank: false, current: true },
+    { name: "Contact", href: "/admin/contact", blank: false, current: true },
   ];
   const pathname = usePathname();
   navigation.forEach((item) => {
