@@ -1,41 +1,39 @@
 import React from "react";
-import Link from "next/link";
 // import { formatPriceVND } from "@/app/constants/common";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import { EquipmentTypes } from "../types/common";
 
-interface SourceDetailsProps {
-  image: StaticImageData;
-  title: string;
-  subtitle: string;
-  link: string;
-  date: string;
-  price: number;
-  discount: number;
-  type: string;
-}
-
-const SourceDetails = ({ image, title, type, link }: SourceDetailsProps) => {
+const SourceDetails = ({
+  source,
+  setEquipmentCurrent,
+  setShowViewModal,
+}: {
+  source: EquipmentTypes;
+  setEquipmentCurrent: (equipment: EquipmentTypes) => void;
+  setShowViewModal: (show: boolean) => void;
+}) => {
+  const handleClickImage = () => {
+    setEquipmentCurrent({ ...source });
+    setShowViewModal(true);
+  };
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="relative h-60 flex flex-row items-center justify-center content-center">
-        <Link href={link} target="_blank">
-          <Image
-            width={200}
-            height={200}
-            className="rounded-t-lg"
-            alt="phuchoichucnang button"
-            src={image}
-          />
-        </Link>
+        <Image
+          width={200}
+          height={200}
+          className="rounded-t-lg"
+          alt="phuchoichucnang button"
+          onClick={handleClickImage}
+          src={source.image}
+        />
       </div>
       <div className="p-5">
-        <a
-          href="#"
-          className="flex-none rounded bg-gray-900 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">
-          {type}
+        <a className="flex-none rounded bg-gray-900 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">
+          {source.type}
         </a>
         <p className="my-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-4">
-          {title}
+          {source.title}
         </p>
         <div className="flex flex-row justify-between items-center">
           {/* <p className="text-lg line-through font-semibold text-gray-500 dark:text-white ">

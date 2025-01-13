@@ -1,48 +1,52 @@
 "use client";
-import { emptyAuthor, emptyBlog } from "@/app/constants";
-import CreateModal from "@/app/modal/blog/CreateModal";
+import { emptyEquipment } from "@/app/constants";
+import CreateModal from "@/app/modal/equipment/CreateModal";
 import DeleteModal from "@/app/modal/DeleteModal";
-import EditModal from "@/app/modal/blog/EditModal";
-import { BlogTypes } from "@/app/types/common";
+import EditModal from "@/app/modal/equipment/EditModal";
+import { EquipmentTypes } from "@/app/types/common";
 import db from "@/app/utils/firestore";
 import { collection, getDocs } from "@firebase/firestore";
 import { Pencil, Trash2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
-const BlogAdminPage = () => {
-  const [blogList, setBlogList] = useState<BlogTypes[]>([]);
+const EquipmentAdminPage = () => {
+  const [equipmentList, setEquipmentList] = useState<EquipmentTypes[]>([]);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [blogCurrent, setBlogCurrent] = useState({ ...emptyBlog });
+  const [equipmentCurrent, setEquipmentCurrent] = useState({
+    ...emptyEquipment,
+  });
 
-  const onEditBlog = (blog: BlogTypes) => {
+  const onEditEquipment = (equipment: EquipmentTypes) => {
     setShowEditModal(!showEditModal);
-    setBlogCurrent(blog);
-    console.log("Edit Blog");
+    setEquipmentCurrent(equipment);
+    console.log("Edit Equipment");
   };
 
-  const onDeleteBlog = (blog: BlogTypes) => {
+  const onDeleteEquipment = (equipment: EquipmentTypes) => {
     setShowDeleteModal(!showDeleteModal);
-    setBlogCurrent(blog);
-    console.log("Delete Blog");
+    setEquipmentCurrent(equipment);
+    console.log("Delete Equipment");
   };
 
   useEffect(() => {
     const fetchItems = async () => {
-      const querySnapshot = await getDocs(collection(db, "blogs"));
-      setBlogList(
+      const querySnapshot = await getDocs(collection(db, "equipments"));
+      setEquipmentList(
         querySnapshot.docs.map((doc) => {
           const data = doc.data();
           return {
             id: doc.id,
             date: data.date,
             title: data.title,
-            mainImg: data.mainImg,
             subtitle: data.subtitle,
-            related: data.related,
-            href: data.href,
             content: data.content,
-            author: data.author && emptyAuthor,
+            type: data.type,
+            code: data.code,
+            image: data.image,
+            href: data.href,
+            price: data.price,
+            discount: data.discount,
           };
         })
       );
@@ -56,13 +60,13 @@ const BlogAdminPage = () => {
       <CreateModal />
       <EditModal
         showEditModal={showEditModal}
-        blogCurrent={blogCurrent}
+        equipmentCurrent={equipmentCurrent}
         setShowEditModal={setShowEditModal}
       />
       <DeleteModal
         showDeleteModal={showDeleteModal}
-        idCurrent={blogCurrent.id}
-        collection="blogs"
+        idCurrent={equipmentCurrent.id}
+        collection="equipments"
         setShowDeleteModal={setShowDeleteModal}
       />
       <table className="w-full p-10 table-fixed border border-gray-400">
@@ -76,33 +80,33 @@ const BlogAdminPage = () => {
           </tr>
         </thead>
         <tbody>
-          {blogList.map((blog) => (
-            <tr className="border border-gray-400" key={blog.id}>
+          {equipmentList.map((equipment) => (
+            <tr className="border border-gray-400" key={equipment.id}>
               <td className="p-4">
                 <div className="flex justify-center items-center">
-                  <p className="line-clamp-2">{blog.id}</p>
+                  <p className="line-clamp-2">{equipment.id}</p>
                 </div>
               </td>
               <td className="p-4">
                 <div className="flex justify-center items-center ">
-                  <p className="line-clamp-2">{blog.title}</p>
+                  <p className="line-clamp-2">{equipment.title}</p>
                 </div>
               </td>
               <td className="p-4">
                 <div className="flex justify-center items-center ">
-                  <p className="line-clamp-2">{blog.subtitle}</p>
+                  <p className="line-clamp-2">{equipment.subtitle}</p>
                 </div>
               </td>
               <td className="p-4">
                 <div className="flex justify-center items-center">
-                  <button onClick={() => onEditBlog(blog)}>
+                  <button onClick={() => onEditEquipment(equipment)}>
                     <Pencil className="p-1 rounded-sm bg-orange-300 text-orange-600 w-6 h-6" />
                   </button>
                 </div>
               </td>
               <td className="p-4">
                 <div className="flex justify-center items-center">
-                  <button onClick={() => onDeleteBlog(blog)}>
+                  <button onClick={() => onDeleteEquipment(equipment)}>
                     <Trash2 className="p-1 rounded-sm bg-red-300 text-red-600 w-6 h-6" />
                   </button>
                 </div>
@@ -115,4 +119,4 @@ const BlogAdminPage = () => {
   );
 };
 
-export default BlogAdminPage;
+export default EquipmentAdminPage;

@@ -8,6 +8,12 @@ const Admin = () => {
   const navigation = [
     { name: "Blog", href: "/admin/blog", blank: false, current: true },
     { name: "Contact", href: "/admin/contact", blank: false, current: true },
+    {
+      name: "Equipment",
+      href: "/admin/equipment",
+      blank: false,
+      current: true,
+    },
   ];
   const pathname = usePathname();
   navigation.forEach((item) => {

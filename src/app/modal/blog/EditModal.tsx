@@ -15,7 +15,7 @@ import {
   removeVietnameseTones,
   spaceToSlash,
 } from "@/app/constants/common";
-import { BlogTypes } from "../types/common";
+import { BlogTypes } from "../../types/common";
 
 export default function EditModal({
   showEditModal,

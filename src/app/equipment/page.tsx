@@ -1,5 +1,5 @@
 import React from "react";
-import ListItems from "../components/ListItems";
+import ListItems from "../components/equipment/ListItems";
 
 const Blog = () => {
   return (

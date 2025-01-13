@@ -32,3 +32,16 @@ export interface MessageProps {
   message: string;
   date: string;
 }
+export interface EquipmentTypes {
+  id: string;
+  code: string;
+  title: string;
+  subtitle: string;
+  href: string;
+  content: string;
+  type: string;
+  date: string;
+  image: string;
+  price: number;
+  discount: number;
+}
