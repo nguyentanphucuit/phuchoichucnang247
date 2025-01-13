@@ -1,7 +1,5 @@
 import React from "react";
 import Section from "./Section";
-import Stats from "./Stats";
-import Navbar from "./Navbar";
 
 const Hero = () => {
   return (

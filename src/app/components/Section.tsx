@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
-import doctorImage from "/public/assets/img/doctor-image-2.png";
+// import Image from "next/image";
+// import doctorImage from "/public/assets/img/doctor-image-2.png";
 const Section = () => {
   return (
     <div className="w-screen">
