@@ -1,5 +1,6 @@
+import { EquipmentTypes } from "../types/common";
 import blogListJSX from "./blogListJSX";
-import { ListItems, sourcesPerPage } from "./index";
+import { sourcesPerPage } from "./index";
 
 const formatPriceVND = (price: number) => {
   return (
@@ -10,18 +11,28 @@ const formatPriceVND = (price: number) => {
 };
 
 // START SOURCE
-const totalNumberSourceSearchQuery = (query: string) => {
-  return ListItems.filter((source) =>
-    source.title.toLowerCase().includes(query.toLowerCase())
+const totalNumberSourceSearchQuery = (
+  query: string,
+  listItems: { title: string }[]
+) => {
+  return listItems.filter((source) =>
+    source.title?.toLowerCase().includes(query.toLowerCase())
   ).length;
 };
 
-const fetchSourcesPage = (query: string) => {
-  return Math.ceil(totalNumberSourceSearchQuery(query) / sourcesPerPage);
+const fetchSourcesPage = (query: string, listItems: { title: string }[]) => {
+  return Math.ceil(
+    totalNumberSourceSearchQuery(query, listItems) / sourcesPerPage
+  );
 };
 
-const fetchFilteredSource = (query: string, currentPage: number) => {
-  const listSourceFilters = ListItems.filter((source) =>
+const fetchFilteredSource = (
+  query: string,
+  currentPage: number,
+  listItems: EquipmentTypes[]
+) => {
+  console.log(listItems);
+  const listSourceFilters = listItems.filter((source) =>
     source.title.toLowerCase().includes(query.toLowerCase())
   );
   const start = (currentPage - 1) * sourcesPerPage;
