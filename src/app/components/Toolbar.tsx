@@ -6,6 +6,10 @@ import {
   List,
   ListOrdered,
   Heading2,
+  Heading1,
+  Heading3,
+  Heading4,
+  Heading5,
   Underline,
   Quote,
   Undo,
@@ -50,10 +54,38 @@ const Toolbar = ({ editor }: ToolbarProps) => {
       },
     },
     {
-      name: "heading",
+      name: "heading1",
+      icon: <Heading1 className="w-5 h-5" />,
+      handleClick: () => {
+        editor.chain().focus().toggleHeading({ level: 1 }).run();
+      },
+    },
+    {
+      name: "heading2",
       icon: <Heading2 className="w-5 h-5" />,
       handleClick: () => {
         editor.chain().focus().toggleHeading({ level: 2 }).run();
+      },
+    },
+    {
+      name: "heading3",
+      icon: <Heading3 className="w-5 h-5" />,
+      handleClick: () => {
+        editor.chain().focus().toggleHeading({ level: 3 }).run();
+      },
+    },
+    {
+      name: "heading4",
+      icon: <Heading4 className="w-5 h-5" />,
+      handleClick: () => {
+        editor.chain().focus().toggleHeading({ level: 4 }).run();
+      },
+    },
+    {
+      name: "heading5",
+      icon: <Heading5 className="w-5 h-5" />,
+      handleClick: () => {
+        editor.chain().focus().toggleHeading({ level: 5 }).run();
       },
     },
     {
@@ -115,10 +147,7 @@ const Toolbar = ({ editor }: ToolbarProps) => {
               item.handleClick();
             }}
             className={
-              editor.isActive(
-                item.name,
-                item.name === "heading" && { level: 2 }
-              )
+              editor.isActive(item.name)
                 ? "bg-sky-700 text-white p-2 rounded-lg"
                 : "text-sky-400"
             }>
