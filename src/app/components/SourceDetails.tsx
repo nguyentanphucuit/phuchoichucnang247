@@ -1,6 +1,5 @@
 import React from "react";
 // import { formatPriceVND } from "@/app/constants/common";
-import Image from "next/image";
 import { EquipmentTypes } from "../types/common";
 
 const SourceDetails = ({
