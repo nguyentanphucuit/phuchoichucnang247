@@ -18,10 +18,8 @@ const SourceDetails = ({
   };
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <div className="relative h-60 flex flex-row items-center justify-center content-center">
-        <Image
-          width={200}
-          height={200}
+      <div className="relative w-64 h-64 p-10 flex flex-col items-center justify-center content-center mx-auto">
+        <img
           className="rounded-t-lg"
           alt="phuchoichucnang button"
           onClick={handleClickImage}
