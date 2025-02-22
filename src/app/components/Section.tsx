@@ -8,17 +8,17 @@ const Section = () => {
         <div className="absolute text-center flex flex-col gap-10 justify-center items-center">
           <div className="w-1/2">
             <p className="text-lg sm:text-2xl md:text-5xl text-blue-400 uppercase ">
-              Giấc mơ phục hồi sau chấn thương sẽ không còn là ước mơ xa vời đối
-              với bạn
+              Giải pháp Phục Hồi Chức Năng Tại Nhà – Tiện Lợi, Hiệu Quả, An Toàn
             </p>
           </div>
           <div className="w-1/2">
             <p className="text-sm sm:text-lg md:text-lg text-white font-mono">
-              Bác sĩ phục hồi chức năng với chuyên môn cao, tận tâm và giàu kinh
-              nghiệm, cam kết hỗ trợ bệnh nhân phục hồi sức khỏe, cải thiện khả
-              năng vận động và chất lượng cuộc sống. Chúng tôi cung cấp các
-              phương pháp điều trị hiệu quả, an toàn và phù hợp với từng nhu cầu
-              cụ thể, giúp bệnh nhân nhanh chóng trở lại cuộc sống bình thường.
+              Chúng tôi thấu hiểu những khó khăn mà bạn và gia đình phải đối mặt
+              khi di chuyển để điều trị, đặc biệt trong giai đoạn phục hồi sau
+              chấn thương hay bệnh tật. Vì vậy, chúng tôi mang dịch vụ phục hồi
+              chức năng tận nhà, giúp bạn cải thiện sức khỏe ngay trong không
+              gian quen thuộc, giảm bớt gánh nặng và nâng cao chất lượng cuộc
+              sống.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
