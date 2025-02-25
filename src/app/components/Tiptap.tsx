@@ -5,6 +5,7 @@ import StarterKit from "@tiptap/starter-kit";
 import Toolbar from "./Toolbar";
 import Underline from "@tiptap/extension-underline";
 import ImageResize from "tiptap-extension-resize-image";
+import { removeFirstAndLastQuotes } from "../constants/common";
 
 const Tiptap = ({
   onChange,
@@ -29,7 +30,7 @@ const Tiptap = ({
     onUpdate: ({ editor }) => {
       handleChange(editor.getHTML());
     },
-    content: content.slice(1, -1),
+    content: removeFirstAndLastQuotes(content),
   });
 
   return (

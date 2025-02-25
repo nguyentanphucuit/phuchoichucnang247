@@ -99,6 +99,12 @@ const removeVietnameseTones = (str: string) => {
   );
   return str;
 };
+function removeFirstAndLastQuotes(str: string) {
+  if (str.startsWith('"') && str.endsWith('"')) {
+    return str.slice(1, -1);
+  }
+  return str; // Return original if no quotes
+}
 
 export {
   formatPriceVND,
@@ -107,6 +113,7 @@ export {
   totalNumberSourceSearchQuery,
   spaceToSlash,
   removeVietnameseTones,
+  removeFirstAndLastQuotes,
   fetchFilteredBlog,
   totalNumberBlogSearchQuery,
   fetchBlogsPage,
