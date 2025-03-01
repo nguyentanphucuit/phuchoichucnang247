@@ -48,6 +48,7 @@ const emptyBlog = {
   date: "",
   author: emptyAuthor,
   related: false,
+  views: 0,
 };
 
 const emptyMessage = {
