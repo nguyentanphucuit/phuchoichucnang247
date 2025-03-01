@@ -36,6 +36,7 @@ const ListBlog = () => {
             href: data.href,
             content: data.content,
             author: data.author && emptyAuthor,
+            views: data.views,
           };
         })
       );

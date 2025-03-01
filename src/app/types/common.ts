@@ -18,6 +18,7 @@ export interface BlogTypes {
   content: string;
   author: AuthorTypes;
   related: boolean;
+  views: number;
 }
 
 export interface ToolbarProps {

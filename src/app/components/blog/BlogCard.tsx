@@ -2,22 +2,30 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BlogTypes } from "@/app/types/common";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 const BlogCard = ({ ...props }: BlogTypes) => {
-  console.log(props);
   return (
     <article
       key={props.id}
       className="flex max-w-xl flex-col items-start justify-between">
-      <div className="flex items-center gap-x-4 text-xs">
+      <div className="flex items-center gap-x-4 text-xs py-4">
         <time dateTime={props.date} className="text-gray-500">
           {props.date}
         </time>
+        <span className="text-gray-500">
+          <FontAwesomeIcon icon={faEye} className="px-2" />
+          {props.views} lượt xem
+        </span>
       </div>
-      <div className="relative h-48 w-full overflow-hidden">
+      <div className="relative h-40 w-full overflow-hidden">
         <img
           alt={props.title}
           src={props.mainImg}
+          width={300}
+          height={160}
+          style={{ width: "300px", height: "160px" }}
           className="rounded-lg bg-gray-50"
         />
       </div>
@@ -27,7 +35,7 @@ const BlogCard = ({ ...props }: BlogTypes) => {
           href={props.href}>
           {props.title}
         </Link>
-        <div className="mt-5 h-20 line-clamp-3 text-sm/6 text-gray-600">
+        <div className="mt-5 h-[75px] line-clamp-3 text-sm/6 text-gray-600">
           {props.subtitle}
         </div>
       </div>
