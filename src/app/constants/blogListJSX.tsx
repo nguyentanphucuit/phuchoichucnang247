@@ -151,6 +151,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "1",
@@ -297,6 +298,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "2",
@@ -443,6 +445,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "3",
@@ -589,6 +592,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "4",
@@ -735,6 +739,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "5",
@@ -881,6 +886,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "6",
@@ -1027,6 +1033,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "7",
@@ -1173,6 +1180,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "8",
@@ -1319,6 +1327,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "9",
@@ -1465,6 +1474,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
   {
     id: "3",
@@ -1611,6 +1621,7 @@ const blogList: BlogTypes[] = [
       href: "#",
       imageUrl: imageAuthor,
     },
+    views: 0,
   },
 ];
 
