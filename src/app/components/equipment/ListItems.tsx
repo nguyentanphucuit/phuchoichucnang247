@@ -63,7 +63,7 @@ const ListItem = () => {
   return (
     <>
       <div className="pt-20 w-screen hero-pattern"></div>
-      <div className="pt-12 w-full mx-auto max-w-7xl">
+      <div className="pt-60 px-5 sm:pt-12 w-full mx-auto max-w-7xl">
         <Suspense>
           <Search placeholder="Tìm kiếm ..." />
         </Suspense>

@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav
       className={classNames(
         open ? "text-white" : "",
-        "absolute w-screen bg-black bg-opacity-20"
+        "absolute w-screen bg-black bg-opacity-80 sm:bg-opacity-20"
       )}>
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-between">

@@ -3,15 +3,15 @@ import React from "react";
 // import doctorImage from "/public/assets/img/doctor-image-2.png";
 const Section = () => {
   return (
-    <div className="w-screen pt-32 sm:pt-10">
+    <div className="w-screen pt-40 sm:pt-10">
       <div className="h-screen flex flex-row justify-center items-center">
         <div className="absolute text-center flex flex-col gap-10 justify-center items-center">
-          <div className="w-1/2">
+          <div className="w-3/4 sm:w-2/3 xl:w-1/2">
             <p className="text-lg sm:text-2xl md:text-5xl text-blue-400 uppercase ">
               Giải pháp Phục Hồi Chức Năng Tại Nhà – Tiện Lợi, Hiệu Quả, An Toàn
             </p>
           </div>
-          <div className="w-1/2">
+          <div className="w-3/4 sm:w-2/3 xl:w-1/2">
             <p className="text-sm sm:text-lg md:text-lg text-white font-mono">
               Chúng tôi thấu hiểu những khó khăn mà bạn và gia đình phải đối mặt
               khi di chuyển để điều trị, đặc biệt trong giai đoạn phục hồi sau

@@ -33,11 +33,11 @@ const ContactComponent = () => {
   };
   return (
     <div>
-      <div className="pt-20 w-screen contactUs-pattern">
+      <div className="pt-60 sm:pt-20 w-screen contactUs-pattern">
         <div className="h-80 flex flex-row justify-center items-center ">
           <div className="absolute text-center flex flex-col gap-10 justify-center items-center">
             <div className="w-1/2">
-              <p className="text-4xl text-blue-400 uppercase">
+              <p className="text-md lg:text-4xl text-blue-400 uppercase">
                 Nếu bạn cần hỗ trợ phục hồi chức năng tại nhà, hãy liên hệ ngay
                 với chúng tôi để được tư vấn và hỗ trợ tốt nhất!
               </p>
