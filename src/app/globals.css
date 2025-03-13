@@ -68,3 +68,31 @@ ol {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.tiptap {
+  :first-child {
+    margin-top: 0;
+  }
+
+  /* Code and preformatted text styles */
+  code {
+    background-color: var(--purple-light);
+    border-radius: 0.4rem;
+    color: var(--black);
+    font-size: 0.85rem;
+    padding: 0.25em 0.3em;
+  }
+
+  /* Link styles */
+  a {
+    color: var(--purple);
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.25s;
+    color: rgb(45, 45, 255);
+
+    &:hover {
+      color: var(--blue-contrast);
+    }
+  }
+}

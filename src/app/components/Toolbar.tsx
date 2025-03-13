@@ -16,6 +16,8 @@ import {
   Redo,
   Code,
   ImagePlus,
+  Link2,
+  Link2Off,
 } from "lucide-react";
 import { ToolbarProps } from "../types/common";
 
@@ -24,6 +26,36 @@ const Toolbar = ({ editor }: ToolbarProps) => {
     const url = window.prompt("URL") || "";
     editor?.chain().focus().setImage({ src: url }).run();
   }, [editor]);
+
+  const setLink = useCallback(() => {
+    const previousUrl = editor?.getAttributes("link").href;
+    const url = window.prompt("URL", previousUrl);
+
+    // cancelled
+    if (url === null) {
+      return;
+    }
+    // empty
+    if (url === "") {
+      editor?.chain().focus().extendMarkRange("link").unsetLink().run();
+
+      return;
+    }
+    // update link
+    try {
+      editor
+        ?.chain()
+        .focus()
+        .extendMarkRange("link")
+        .setLink({ href: url })
+        .run();
+    } catch (e) {
+      if (e instanceof Error) {
+        alert(e.message);
+      }
+    }
+  }, [editor]);
+
   if (!editor) return null;
 
   const listToolbar = [
@@ -134,6 +166,18 @@ const Toolbar = ({ editor }: ToolbarProps) => {
       name: "image",
       icon: <ImagePlus className="w-5 h-5" />,
       handleClick: addImage,
+    },
+    {
+      name: "link",
+      icon: <Link2 className="w-5 h-5" />,
+      handleClick: setLink,
+    },
+    {
+      name: "unlink",
+      icon: <Link2Off className="w-5 h-5" />,
+      handleClick: () => {
+        editor.chain().focus().unsetLink().run();
+      },
     },
   ];
   return (

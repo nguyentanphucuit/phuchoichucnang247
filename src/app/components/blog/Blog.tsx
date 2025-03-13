@@ -38,7 +38,7 @@ const Blog = ({ title }: { title: string }) => {
 };
 const BlogTemplate = ({ ...props }: BlogTypes) => {
   const [timeSpent, setTimeSpent] = useState(0);
-  const [hasScrolled50, setHasScrolled50] = useState(false);
+  const [hasScrolled10, setHasScrolled10] = useState(false);
   const [viewTracked, setViewTracked] = useState(false);
 
   // Track time spent on page
@@ -57,8 +57,8 @@ const BlogTemplate = ({ ...props }: BlogTypes) => {
       const clientHeight = window.innerHeight;
       const scrolledPercentage =
         ((scrollTop + clientHeight) / scrollHeight) * 100;
-      if (scrolledPercentage >= 50) {
-        setHasScrolled50(true);
+      if (scrolledPercentage >= 10) {
+        setHasScrolled10(true);
       }
     };
 
@@ -80,11 +80,11 @@ const BlogTemplate = ({ ...props }: BlogTypes) => {
 
   // Send API request when conditions are met
   useEffect(() => {
-    if (timeSpent >= 5 && hasScrolled50 && !viewTracked) {
+    if (timeSpent >= 1 && hasScrolled10 && !viewTracked) {
       handleSubmit();
       setViewTracked(true);
     }
-  }, [timeSpent, hasScrolled50, viewTracked, props.title]);
+  }, [timeSpent, hasScrolled10, viewTracked, props.title]);
 
   return (
     <div className="flex flex-col gap-4 pt-12">
@@ -98,7 +98,7 @@ const BlogTemplate = ({ ...props }: BlogTypes) => {
       <div className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-3xl">
         {props.title || ""}
       </div>
-      <div className="">{parse(props.content.slice(1, -1))}</div>
+      <div className="tiptap">{parse(props.content.slice(1, -1))}</div>
     </div>
   );
 };
