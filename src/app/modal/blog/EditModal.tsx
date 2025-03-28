@@ -102,7 +102,7 @@ export default function EditModal({
               <DialogTitle
                 as="h3"
                 className="text-base/7 font-medium text-black">
-                Create Blog
+                Edit Blog
               </DialogTitle>
               <div className="w-full h-full">
                 <form onSubmit={handleSubmit}>
