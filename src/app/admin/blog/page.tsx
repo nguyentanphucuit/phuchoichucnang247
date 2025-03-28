@@ -37,6 +37,8 @@ const BlogAdminPage = () => {
             id: doc.id,
             date: data.date,
             title: data.title,
+            typeValue: data.typeValue,
+            typeLabel: data.typeLabel,
             mainImg: data.mainImg,
             subtitle: data.subtitle,
             related: data.related,

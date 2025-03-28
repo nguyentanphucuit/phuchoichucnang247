@@ -12,6 +12,8 @@ export interface BlogTypes {
   id: string;
   date: string;
   mainImg: string;
+  typeValue: string;
+  typeLabel: string;
   title: string;
   subtitle: string;
   href: string;

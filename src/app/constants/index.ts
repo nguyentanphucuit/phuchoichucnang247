@@ -41,6 +41,8 @@ const emptyAuthor = {
 const emptyBlog = {
   id: "",
   title: "",
+  typeValue: "",
+  typeLabel: "",
   subtitle: "",
   content: "",
   mainImg: "",
@@ -72,6 +74,12 @@ const emptyEquipment = {
   price: 0,
   discount: 0,
 };
+
+const listType = [
+  { value: "0", label: "Tất cả bệnh lý", href: "/blog" },
+  { value: "1", label: "Bệnh lý cơ xương khớp", href: "/blog" },
+  { value: "2", label: "Bệnh lý thần kinh", href: "/blog" },
+];
 
 const ListItems = [
   {
@@ -393,4 +401,5 @@ export {
   emptyBlog,
   emptyMessage,
   emptyEquipment,
+  listType,
 };

@@ -16,6 +16,8 @@ import {
   spaceToSlash,
 } from "@/app/constants/common";
 import { BlogTypes } from "../../types/common";
+import ComboboxComp from "@/app/components/ComboboxComp";
+import { listType } from "@/app/constants";
 
 export default function EditModal({
   showEditModal,
@@ -27,9 +29,17 @@ export default function EditModal({
   setShowEditModal: (showEditModal: boolean) => void;
 }) {
   const [blog, setBlog] = useState<BlogTypes>({ ...blogCurrent });
+  const [selected, setSelected] = useState<{
+    label: string;
+    value: string;
+  } | null>(listType[1]);
 
   useEffect(() => {
     setBlog({ ...blogCurrent });
+    setSelected({
+      label: blogCurrent.typeLabel,
+      value: blogCurrent.typeValue,
+    });
   }, [blogCurrent]);
 
   const date = new Date().toDateString();
@@ -53,12 +63,15 @@ export default function EditModal({
     if (blog.title === "" || blog.subtitle === "" || blog.content === "")
       return;
     console.log(blog);
+    console.log(selected);
     try {
       const blogRef = doc(db, "blogs", blog.id);
       await setDoc(blogRef, {
         ...blog,
         content: JSON.stringify(blog.content).replaceAll("\\", ""),
         href: "/blog/" + spaceToSlash(removeVietnameseTones(blog.title)),
+        typeValue: selected?.value,
+        typeLabel: selected?.label,
         date: date,
       });
       console.log("Document written with ID: ", blog.id);
@@ -145,6 +158,7 @@ export default function EditModal({
                       <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                     </label>
                   </div>
+                  <ComboboxComp selected={selected} setSelected={setSelected} />
                   <Tiptap
                     content={blog.content}
                     onChange={(newContent: string) =>

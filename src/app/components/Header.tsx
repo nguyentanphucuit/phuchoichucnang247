@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <head>
-      <link rel="icon" href="/doctor-logo.svg" sizes="any" />
+      <link rel="icon" href="/favicon.ico" sizes="32x32" />
     </head>
   );
 };
